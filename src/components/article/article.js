@@ -90,6 +90,30 @@ const data = [
   }
 ];
 
+function menuMaker(linksArray){
+  const menuWrapper = document.createElement('div')
+  const menuList = document.createElement('ul')
+  
+  menuWrapper.appendChild(menuList)
+  menuWrapper.classList.add('menu')
+
+  linksArray.forEach(linkText =>{
+    const link = document.createElement('li')
+    link.textContent = linkText
+    menuList.appendChild(link)
+  
+  })
+
+  const hamMenu = document.querySelector('.menu-button')
+
+  hamMenu.addEventListener('click', ()=> {
+    document.querySelector('.menu').classList.toggle('menu--open')
+  })
+  return menuWrapper
+}
+
+document.querySelector('.header').appendChild(menuMaker(menuItems))
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
